@@ -1,76 +1,37 @@
-window.onload = function () {
-alert("CHOOSE. YOUR. CHICKEN!");
-}
-
-/*array*/
-var chicken = ["fried", "barbecue", "grilled", "jerk"]
-
-//chicken type will be replaced by spaces equal to length of word
-var rawChicken = function () {
-var chosenChicken[Math.floor(Math.random() * chicken.length)];
-var hiddenChicken = chosenChicken.replace(/\s/g, "-");
-console.log(chosenChicken);
-buttons(); 
-
 var guessesLeft = 10;
 var losses = 0;
 var wins = 0;
 var previousGuesses = [];
-var letterGuess = String.fromCharCode()
-var chosenChicken = ;
-var hiddenChicken = ;
+var letterGuess; //String.fromCharCode();
+var dash = [];
 
+/*array*/
+var chicken = ["fried", "barbecue", "grilled", "jerk"];
+
+//picks index of chicken array at random for hangman play
+var chickPick = chicken[Math.floor(Math.random() * chicken.length)];
+console.log(chickPick)
+
+//chicken type will be replaced by spaces equal to length of word (dash)
+ for (var i=0; i < chickPick.length; i++) {
+ dash[i] = "-";
 }
+console.log(dash)
 
-document.onkeyup = function() {
-letterGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-if (letterGuess === previousGuesses) {
-previousGuesses.push(letterGuess);
-console.log("Not a match!");
-
-if (letterGuess === letter in hiddenChicken) {
-
-letter in chosenChicken = hiddenChicken.replace(/\s/g, "-");
-    
-if(letterGuess === chicken[0-4]) {
-console.log("You got a chicken!");
-wins++;
-
-var rawChicken = function () {
-var chosenChicken[Math.floor(Math.random() * chicken.length)];
-var hiddenChicken = chosenChicken.replace(/\s/g, "-");
-console.log(chosenChicken);
-buttons(); 
-/*reset the number of guesses available*/
-function myFunction() {
-    delete previousGuesses[];
-
-}
-}
-else {
-guessesLeft--;
-        
-if(guessesLeft === 0) {
-console.log("you lost");
-losses++;
-
-//reset the number of guesses available
-var rawChicken = function () {
-var chosenChicken[Math.floor(Math.random() * chicken.length)];
-var hiddenChicken = chosenChicken.replace(/\s/g, "-");
-console.log(chosenChicken);
-buttons(); 
-
-function myFunction() {
-    delete previousGuesses[];
+// keys pressed will be compared to letters in chickPick
+document.onkeyup = function(event) {
+var letterGuess = String.fromCharCode(event.keyCode).toLowerCase();
+for (var i = 0; i < chickPick.length; i++) 
+if (letterGuess === chickPick[i]) {
+alert("match!");
 }
 }
 
-}
-}
-else {
-console.log("You tried that already.");
-}
-}
+
+
+ 
+
+
+
+
 
